@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'css/registerstyle.css' %}">
+</head>
+<body style="background-image: url('{% static 'img/whitebg.jpg' %}'); background-repeat:no-repeat;background-size: 100%;">
+
+    <div class="headerDiv">
+        <header>
+            <div class="logo" style="background-image: url('{% static 'img/LoGo.png' %}'); background-repeat:no-repeat;background-size: 75%;"></div>
+            <div class="logoname">
+                <h3>MAADHYAM</h3>
+            </div>
+            <nav class="navigation">
+                <a href="ApprovedVideos.html">Videos<span></span></a>
+                <a href="Pending2.html">Pending Videos<span></span></a>
+                <a href="Login.html">Login<span></span></a>
+                <a href="Register.html">SignUp<span></span></a>
+            </nav>
+        </header>
+    </div> 
+
+    <div class="wrapper" style="background-image: url('{% static'img/greenbg.jpg' %}'); background-repeat:repeat;background-size: 100%;">
+        <form class="form" action="{% url 'Register' %}" method="post">  
+            {% csrf_token %}
+            <h1>Register</h1>
+
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+            </div>
+            <br>
+
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <br>
+
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <br>   
+
+            <div class="input-box">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+            </div>
+            <br>
+
+            <div class="input-box">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            </div>
+            <br>
+
+            <div class="input-box">
+                <label for="aadhar">Aadhar Number</label>
+                <input type="text" id="aadhar" name="aadhar" placeholder="Aadhar Number" required>
+            </div>
+            <br>
+
+            <button type="submit" class="btn">Register</button>
+
+            <div class="register-link">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

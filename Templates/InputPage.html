@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Page</title>
+    <link rel="stylesheet" href="{% static 'css/InputPage.css'%}">
+</head>
+<body style="background-image: url('{% static 'img/greenbg.jpg' %}'); background-repeat:no-repeat;background-size: 100%;">
+
+    <header>
+        <div class="log">
+            <img class="logo" src="{% static 'img/LoGo.png' %}">
+        </div>
+        <div class="logoname">
+            <h3>MAADHYAM</h3>
+        </div>
+        <nav class="navigation">
+            <a href="index">Home<span></span></a>
+            <a href="Login">Login<span></span></a>
+            <a href="InputPage">Input<span></span></a>
+            <a href="videos">Videos<span></span></a>
+            <a href="Login">Logout<span></span></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tab-content">
+            <hr><br>
+            <h4>Enter PDF</h4>
+            <form method="post" action="{% url 'InputPage' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input class="file-input" type="file" name="pdf_file" accept=".pdf" >
+                <button type="submit" style="background-color: orange; color: white; border-radius: 40px; height: 40px; width: 150px; border: transparent; font-weight: 900">Submit</button>
+            </form>
+            <br><hr><br>
+            <h4>Enter Link</h4>
+            <form method="post" action="{% url 'InputPage' %}">
+                {% csrf_token %}
+                <label for="inputText">Enter the PIB link: </label>
+                <input type="text" id="inputText" name="input_text" required size="90px">
+                <br><br>
+                <button type="submit" style="background-color: green; color: white; border-radius: 40px; height: 40px; width: 150px; border: transparent; font-weight: 900">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/InputPage.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <link rel="stylesheet" href="{% static 'css/video_list.css' %}">
+</head>
+<body style="background-image: url('{% static 'img/greenbg.jpg' %}'); background-size: 100%;">
+
+    <!-- Header Section -->
+    <header>
+        <div class="log">
+            <img class="logo" src="{% static 'img/LoGo.png' %}" alt="Logo">
+        </div>
+        <div class="logoname">
+            <h3>MAADHYAM</h3> 
+        </div>
+        <nav class="navigation">
+            <a href="index">Home<span></span></a>
+            <a href="InputPage">Input<span></span></a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        
+        <!-- Current Date and Time
+        <div class="current-datetime">
+            <h2>Current Date and Time: {% now "Y-m-d H:i:s" %}</h2>
+        </div> -->
+
+        <!-- Video Display Section -->
+        <div class="container">
+            {% if latest_video %}
+                <div class="video-item">
+                    <h2>{{ latest_video.title }}</h2>
+                    <p>Date: {{ latest_video.date }}</p>
+
+                    <video width="700" height="500" controls>
+                        <source src="{{ latest_video.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <hr>
+                {% else %}
+                <p>No videos available.</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
+
+                <!-- Video Action Buttons -->
+                <!-- <div class="video-actions">
+                    <form method="post" action="{% url 'approve_video' latest_video.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Approve">
+                    </form>
+                    <form method="post" action="{% url 'edit_video' latest_video.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Edit">
+                    </form>
+                </div> -->
+           

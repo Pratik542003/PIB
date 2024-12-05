@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery with Select and Delete</title>
+    <link rel="stylesheet" href="{% static 'css/PendingVideo.css'%}">
+</head>
+<body>
+
+    <div class="HeaderDiv">
+        <header>
+            <h2 class="logo">LoGo</h2>
+            <nav class="navigation">
+                <a href="index">Home<span></span></a>
+                <a href="InputPage">Input<span></span></a>
+                <a href="ApprovedVideo">Videos<span></span></a>
+                <a href="PendingVideo">Pending Videos<span></span></a>
+                <a href="Login">Login<span></span></a>
+                <a href="Register">SignUp<span></span></a>
+            </nav>
+        </header>
+        
+    </div>
+   
+        <h3 class="heading">Pending Videos</h3>
+
+    <button class="refresh-btn" onclick="refreshPage()">Refresh</button>
+    <style>
+        /* Style for the "Refresh" button */
+        .refresh-btn {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            border: none; /* Remove border */
+            padding: 10px 15px; /* Add some padding */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px; /* Adjust margin for spacing */
+            cursor: pointer;
+            position: relative; /* Fixed position to stay on the right side */
+            right: 1px; /* Adjust right distance */
+            top: 10px; /* Adjust top distance */
+        }
+    </style>
+    <script>
+        function refreshData() {
+            // Use AJAX to call the Django view without navigating to a new page
+            fetch('/refresh-data/')
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data as needed (update the webpage content)
+                    console.log(data.message);
+                    // You can add additional logic here to update the webpage content
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+    <div class="container">
+        <div class="main-video">
+            <div class="video">
+                <video src= "vi-2.mp4" controls muted autoplay></video>
+                <div class="buttons">
+                    <button class="select-btn" onclick="selectVideo()">Select</button>
+                    <button class="delete-btn" onclick="deleteVideo()">Delete</button>
+                </div>
+                <h3 class="title">01. Video Title Goes Here</h3>
+            </div>
+        </div>
+
+        <div class="video-list">
+            {% for title,href in videos %}
+                <div class="vid">
+                    <!-- <video controls muted>
+                        <source src="{{ video.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> -->
+                    <video src="{{ href }}" alt="{{ title }}"></video>
+                    <div class="title">{{ title }}</div>
+                    <!-- <div class="caption">{{ video.caption }}</div> -->
+                    <!-- <div class="date">{{ video.date }}</div> -->
+                    <!-- <div class="description">{{ video.description }}</div> -->
+                    <!-- <div class="status">{% if video.status %}Approved{% else %}Pending{% endif %}</div> -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/PendingVideo.js'%}"></script>
+</body>
+</html>

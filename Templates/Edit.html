@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <link rel="stylesheet" href="{% static 'css/Edit.css'%}">
+</head>
+<body>
+    <header>
+        <div class="log">
+            <img class="logo"src="{% static 'img/LoGo.png'%}">
+        </div>
+        <nav class="navigation">
+            <a href="index">Home<span></span></a>
+            <a href="InputPage">Input<span></span></a>
+            <a href="ApprovedVideo">Videos<span></span></a>
+            <a href="PendingVideo">Pending Videos<span></span></a>
+            <a href="Login">Login<span></span></a>
+            <a href="Register">SignUp<span></span></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <h3 class="active">Edit Text</h3>
+            <h3>Edit Photos</h3>
+        </div>
+
+        <div class="tab-content">
+            <div class="active">
+               <h4>Edit Text</h4>
+               <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ video.description }}
+                {{ form.description }}
+                <!-- {{ form.as_p }}
+                {{ video.description }} -->
+                <input type="submit" value="Save Changes">
+                </form>
+
+            <a href="{% url 'video_list' %}">Cancel</a>
+            </div>
+
+            <div>
+                <h4>Edit Photos</h4>
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="placeholder.jpg" alt="Photo 1">
+                        <button class="replace-btn">Replace Image</button>
+                    </div>
+                    <div class="photo">
+                        <img src="placeholder.jpg" alt="Photo 2">
+                        <button class="replace-btn">Replace Image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="finalBtn">
+            <button>Save</button>
+        </div>
+    </div>
+
+    <script src="{% static 'js/Edit.js'%}"></script>
+</body>
+</html>

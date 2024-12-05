@@ -1,0 +1,93 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <header>
+        <div class="log">
+            <img class="logo"src="{% static 'img/LoGo.png'%}">
+        </div>
+        <div class="logoname">
+            <h3>MAADHYAM</h3>
+        </div>
+        <div class="homelogo">
+            <a href="index"><img src="{% static 'img/REALITY.png'%}" width="50px"></a>
+        </div>
+        <nav class="navigation">
+
+            <a href="index">Home<span></span></a>
+            <a href="InputPage">Input<span></span></a>
+            <a href="ApprovedVideo">Videos<span></span></a>
+            <a href="PendingVideo">Pending Videos<span></span></a>
+            <a href="Login">Login<span></span></a>
+            <a href="Register">SignUp<span></span></a>
+        </nav>
+    </header>
+
+    <section class="MainWork">
+        <h2 id="text">Revolutionize your news</h2>
+    </section>
+
+    <section class="sec">
+        <h2><br><br>Transform Your Text News<br>Into Interactive Videos</h2>
+        <p>
+        </p>
+    </section>
+    <script src="{% static 'js/script.js'%}"></script>
+</body>
+</html> -->
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body style="background-image: url('{% static 'img/whitebg.jpg' %}'); background-repeat:no-repeat;background-size: 100%;">
+    <header>
+        <div class="logo" style="background-image: url('{% static 'img/LoGo.png' %}'); background-repeat:no-repeat;background-size: 75%;">
+        </div>
+        <div class="logoname">
+         <h3>MAADHYAM</h3>
+     </div>
+        <nav class="navigation">
+            <button style="background-color: white; color: orange; border-radius: 30px;height: 50px;width: 180px; border: transparent; font-weight: 900;">Sign into your Account</button>
+            <!-- <a href="index">Home<span></span></a>-->
+            <a href="InputPage">Input<span></span></a>
+            <!-- <a href="ApprovedVideo">Videos<span></span></a> -->
+            <!-- <a href="PendingVideo">Pending Videos<span></span></a> -->
+            <!-- <a href="Login">Login<span></span></a> -->
+            <!-- <a href="Register">SignUp<span></span></a>  -->
+        </nav>
+    </header>
+
+    <section class="MainWork">
+        <h2 id="text">Revolutionize your news</h2>
+    </section>
+    <section>
+        <button style="background-color: orange; color: white; border-radius: 40px;height: 60px;width: 250px; border: transparent; font-weight: 900; margin-left: 600px; margin-bottom: 50px; position: absolute;top: 600px">Create new Account</button>
+    </section>
+    <section class="sec">
+        <h2><br><br>Transform Your Text News<br>Into Interactive Videos</h2>
+        <p>
+        </p>
+    </section>
+
+    <footer>
+        <section class="Footer">
+
+        </section>
+    </footer>
+    <script src="{% static 'js/script.js'%}"></script>
+</body>
+</html>
