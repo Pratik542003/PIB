@@ -17,8 +17,7 @@ import moviepy.editor as mp
 
 # OpenAI API key
 def genTextSum():
-    OPENAI_API_KEY = "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"
-
+    
     # Initialize OpenAI client
     client = OpenAI(api_key=OPENAI_API_KEY)
 
