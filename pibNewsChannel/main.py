@@ -22,7 +22,7 @@ import fitz
 
 # Initialize the Generative Model
 model = genai.GenerativeModel('gemini-pro')
-
+#put api key
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF."""

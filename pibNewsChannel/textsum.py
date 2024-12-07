@@ -20,7 +20,7 @@ def genTextSum():
     
     # Initialize OpenAI client
     client = OpenAI(api_key=OPENAI_API_KEY)
-
+ #put api key
     # Your prompt
     text = getText("https://pib.gov.in/PressReleasePage.aspx?PRID=1986133")
     # print(text)
